@@ -1,5 +1,8 @@
+#include <stdio.h> 
 #include <stdio.h>
-#include <st
+#include <string.h>
+#include "stringManip.h"
+#include "
 int main() {
 	int level_count = 3, level_size = 5; // Dungeon dimensions
 	LEVEL *dungeon = NULL;    

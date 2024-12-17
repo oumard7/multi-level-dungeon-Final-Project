@@ -14,4 +14,6 @@ ROOM *createRoom(int id, const char *description) {
     room->has_loot = 0; // Initialize room with no loot
     return room;
 }
+//Generate 2D grid of rooms for a level 
+LEVEL *createLevel(int level_number, int size) {
 

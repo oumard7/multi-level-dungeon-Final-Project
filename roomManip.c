@@ -39,8 +39,8 @@ LEVEL *createLevel(int level_number, int size) {
             	grid[id]->n = grid[id - size];
             	grid[id - size]->s = grid[id];
         	}
-    	}
-	}
+    		}
+		 }
 
 	// Add the portal in the last room of the level, until the last level
 	if (level_number < 3) {
@@ -57,5 +57,33 @@ LEVEL *createLevel(int level_number, int size) {
 	free(grid);
 	return level;
 }
+// show the available exits for the current room
+void displayExits(ROOM *room) {
+	printf("Available exits: ");
+	if (room->n) printf("North ");
+	if (room->e) printf("East ");
+	if (room->s) printf("South ");
+	if (room->w) printf("West ");
+	printf("\n");
+}
+
+// Print the dungeon map for the current level
+void printMap(LEVEL *level) {
+	ROOM *row = level->start_room;
+
+	printf(" Dungeon Map (Level %d) \n  ", level->level_number);
+
+	// Traverse the grid row by row
+	while (row) {
+    	ROOM *col = row;
+    	while (col) {
+        printf("[%d] ", col->id);
+        col = col->e;
+    	}
+    	printf("\n");
+    	row = row->s;
+	}
+}
+
 
 

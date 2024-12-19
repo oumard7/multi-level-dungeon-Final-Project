@@ -16,4 +16,14 @@ ROOM *createRoom(int id, const char *description) {
 }
 //Generate 2D grid of rooms for a level 
 LEVEL *createLevel(int level_number, int size) {
+	LEVEL *level = (LEVEL *)malloc(sizeof(LEVEL));
+	level->level_number = level_number;
+	level->next = NULL;
+
+	ROOM **grid = (ROOM **)malloc(size * size * sizeof(ROOM *));
+	for (int row = 0; row < size; row++) {
+    	for (int col = 0; col < size; col++) {
+        	int id = row * size + col;
+        	grid[id] = createRoom(id, "An empty room.");
+
 

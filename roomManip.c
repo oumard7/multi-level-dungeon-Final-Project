@@ -24,6 +24,38 @@ LEVEL *createLevel(int level_number, int size) {
 	for (int row = 0; row < size; row++) {
     	for (int col = 0; col < size; col++) {
         	int id = row * size + col;
-        	grid[id] = createRoom(id, "An empty room.");
+        	grid[id] = createRoom(id, "An empty room.");`
+
+	if (rand() % 5 == 0) { // Which is about a 20% chance of loot
+            	grid[id]->has_loot = 1; // 1 to mark the room as having loot
+        	}
+
+        	// Connect rooms in the grid
+        	if (col > 0) {
+            	grid[id]->w = grid[id - 1];
+            	grid[id - 1]->e = grid[id];
+        	}
+        	if (row > 0) {
+            	grid[id]->n = grid[id - size];
+            	grid[id - size]->s = grid[id];
+        	}
+    	}
+	}
+
+	// Add the portal in the last room of the level, until the last level
+	if (level_number < 3) {
+    	grid[size * size - 1]->description = strdup("This room has a portal to the next level.");
+    	grid[size * size - 1]->is_portal = 1;
+	}
+
+	// Mark the final room of the last level as the end goal 
+	if (level_number == 3) {
+    	grid[size * size - 1]->description = strdup("This is the final room!. Hard work always pay off");
+	}
+
+	level->start_room = grid[0];
+	free(grid);
+	return level;
+}
 
 

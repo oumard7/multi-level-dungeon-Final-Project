@@ -1,9 +1,13 @@
 #include <stdio.h> 
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "stringManip.h"
-#include "
+#include "commandParser.h"
+#include "inventory.h"
+#include "roomManip.h"
 int main() {
+	srand(time(NULL)); // to generate random number
 	int level_count = 3, level_size = 5; // Dungeon dimensions
 	LEVEL *dungeon = NULL;    
 	INVENTORY *inventory = createInventory(5); // Initialize inventory
@@ -23,5 +27,12 @@ int main() {
 	ROOM *current_room = current_level->start_room; 
 
 	    printf("Welcome to the Multi-Level Dungeon Explorer!\n");
+
+
+
+
+	// Free allocated memory
+	freeDungeon(dungeon);
+	freeInventory(inventory);
     return 0; 
 	}

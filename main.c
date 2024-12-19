@@ -32,24 +32,19 @@ int main() {
     		printf("\nYou are in Room [%d]\n", current_room->id);
     		displayExits(current_room); // Display exits
 	    	printf("Enter a command:");
-	    	fgets(command, sizeof(command), stdn);
+	    	fgets(command, sizeof(command), stdin);
 	    	trim(command); // Trim the whitespace from input
 
 		if (strcmp(command, "quit") == 0) {
-        	printf("Exiting the game. Goodbye!\n")
+        	printf("Exiting the game. Goodbye!\n");
         	break;
     	}
 
-    	processCommand(command, &current_room, inventory);
+    	processCommand(command,&current_room,&current_level, inventory);
 	}
 	
-
-
-
-
-
 	// Free allocated memory
 	freeDungeon(dungeon);
 	freeInventory(inventory);
-    return 0; 
-	}
+    	return 0; 
+}

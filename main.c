@@ -27,6 +27,14 @@ int main() {
 	ROOM *current_room = current_level->start_room; 
 
 	    printf("Welcome to the Multi-Level Dungeon Explorer!\n");
+	char command[36];
+		while (1) {
+    		printf("\nYou are in Room [%d]\n", current_room->id);
+    		displayExits(current_room); // Display exits
+	    	printf("Enter a command:");
+	    	fgets(command, sizeof(command), stdin);
+	    	trim(command); // Trim the whitespace from input
+
 
 
 

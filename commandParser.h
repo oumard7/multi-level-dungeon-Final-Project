@@ -3,6 +3,7 @@
 
 #include "roomManip.h"
 #include "inventory.h"
+#include "fileIO.h"
 
-void processCommand(const char *command, ROOM **current_room, LEVEL **current_level, INVENTORY *inventory)
+void processCommand(const char *command, ROOM **current_room, LEVEL **current_level, INVENTORY *inventory);
 #endif

@@ -94,18 +94,18 @@ void freeDungeon(LEVEL *head) {
     	ROOM *row = temp_level->start_room;
     	while (row) {
         	ROOM *col = row;
-        	rows = row->s
+        	row = row->s;
 	while (col) {
             	ROOM *temp_room = col;
             	col = col->e;
             	free(temp_room->description);
             	free(temp_room);
-}        	
-}
-    	}
-
+	}        	
+	}
+  
     	free(temp_level);
 	}
+}
 
 
 

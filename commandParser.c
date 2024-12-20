@@ -58,6 +58,27 @@ void processCommand(const char *command, ROOM **current_room, LEVEL **current_le
             	printf("You found the treasure! Good job! \n"); //display the congrats to the user 
             	exit(0); // End the game
         	}
+			(*current_room)->visited = 1; // Mark the room as visited
+    	} else {
+        	printf("You can't go that way.\n");
+    	}
+	} else if (strcmp(command, "loot") == 0) {
+    	displayInventory(inventory); // Display the player's inventory
+	} else if (strcmp(command, "map") == 0) {
+    	printMap(*current_level); // Display the dungeon map
+	} else if (strcmp(command, "save") == 0) {
+    	saveGame(*current_level, inventory, "saved_game.txt"); // Save the game 
+    	printf("Game saved!\n");
+	} else if (strcmp(command, "load") == 0) {
+    	loadGame(current_level, &inventory, "saved_game.txt"); // Load the game 
+    	printf("Game loaded successfully!\n");
+	} else {
+    	printf("Unknown command.\n");
+	}
+}
+
+
+
 
 
 

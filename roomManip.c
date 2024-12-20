@@ -84,6 +84,11 @@ void printMap(LEVEL *level) {
     	row = row->s;
 	}
 }
+//Free the allocated memory
+void freeDungeon(LEVEL *head) {
+	while (head) {
+    	LEVEL *temp_level = head;
+    	head = head->next;
 
 
 

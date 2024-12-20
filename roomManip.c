@@ -90,5 +90,24 @@ void freeDungeon(LEVEL *head) {
     	LEVEL *temp_level = head;
     	head = head->next;
 
+// Free all rooms in this level
+    	ROOM *row = temp_level->start_room;
+    	while (row) {
+        	ROOM *col = row;
+        	rows = row->s
+	while (col) {
+            	ROOM *temp_room = col;
+            	col = col->e;
+            	free(temp_room->description);
+            	free(temp_room);
+}        	
+}
+    	}
+
+    	free(temp_level);
+	}
+
+
+
 
 

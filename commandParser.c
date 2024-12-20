@@ -49,6 +49,18 @@ void processCommand(const char *command, ROOM **current_room, LEVEL **current_le
         	if ((*current_room)->is_portal) {
             	printf("Ohh. You entered the portal to the next level...\n");
 
+		*current_level = (*current_level)->next; // Move to the next level
+            	*current_room = (*current_level)->start_room;
+        	}
+
+        	// Check if the room is the final room in the last level (level 3) and room 24)
+		if ((*current_level)->level_number == 3 && (*current_room)->id == 24) {
+            	printf("You found the treasure! Good job! \n"); //display the congrats to the user 
+            	exit(0); // End the game
+        	}
+
+
+
 
 
 

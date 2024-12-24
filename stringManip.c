@@ -13,3 +13,4 @@ void trim(char *str) {
     while (end > str && isspace((unsigned char)*end)) end--;
 
     *(end + 1) = '\0'; 
+}

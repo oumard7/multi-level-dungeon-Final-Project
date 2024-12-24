@@ -24,7 +24,7 @@ LEVEL *createLevel(int level_number, int size) {
 	for (int row = 0; row < size; row++) {
     	for (int col = 0; col < size; col++) {
         	int id = row * size + col;
-        	grid[id] = createRoom(id, "An empty room.");`
+        	grid[id] = createRoom(id, "An empty room.");
 
 	if (rand() % 5 == 0) { // Which is about a 20% chance of loot
             	grid[id]->has_loot = 1; // 1 to mark the room as having loot
